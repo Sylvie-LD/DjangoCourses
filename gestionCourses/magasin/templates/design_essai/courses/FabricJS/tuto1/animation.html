@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+   </head>
+
+<body>
+    <canvas id="c" width="800" height="600"></canvas>
+
+    <script>
+        
+// Créer le canevas 
+var canvas = new fabric.Canvas('c');
+
+fabric.Image.fromURL('rayon.png',function(img) {
+   
+    // Redimensionner l'image proportionnellement pour qu'elle ait une largeur de 200px
+    img.scaleToWidth(200);
+    img.scaleToHeight(200);  
+
+    // Positionner l'image initialement
+    img.set({ left: 0, top: 200 }); 
+    canvas.add(img);
+
+    img.animate('left', '+=500',{
+        onChange: canvas.renderAll.bind(canvas),//faire glissser l'image
+        duration: 5000,
+        easing: fabric.util.ease.easeInOutQuad// Type d'animation (facultatif)
+    });
+
+    img.animate('angle','-=5',{
+        onChange: canvas.renderAll.bind(canvas),//faire glissser l'image
+        duration: 5000,
+        easing: fabric.util.ease.easeInOutQuad// Type d'animation (facultatif)
+    });
+
+   
+
+
+    
+});  
+    </script>
+</body>
+</html>

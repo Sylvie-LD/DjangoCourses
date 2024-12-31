@@ -1,0 +1,14 @@
+<h1>Voici la liste des produits du magasin pour le {{rayon.nom_rayon}} </h1>
+
+   {% for detail_etagere in details_etageres %}
+        <h2>{{ detail_etagere.etagere.nom_etagere }}</h2>
+        <ul>
+            {% for produit in detail_etagere.produits %}
+                <li>{{ produit.nom_produit }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+<p><a href="{% url 'magasin:select_rayon' %}">&laquo; Revenir à la liste des rayons</a></p>
+</body>
+</html>

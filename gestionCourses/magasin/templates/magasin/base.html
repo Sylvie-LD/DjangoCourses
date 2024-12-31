@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="theme-light"> <!-- forcer le mode light sur écran sombre -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestion des courses!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+<!--      <link rel="stylesheet"  href="{% static 'magasin/css/debug.css' %}">-->
+          <link rel="stylesheet"  href="{% static 'magasin/css/styles.css' %}">
+
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+
+
+  </head>
+
+  <body>
+  <!-- .hero -->
+    <section class="hero is-info has-background-light is-fullheight">
+      <div class="hero-head">
+        <!-- .hero-head -->
+        <!--BARRE DE NAVIGATION-->
+        <nav class="navbar has-background-danger-light">
+          <div class="navbar-brand is-mobile">
+                <figure class="navbar-item image">
+                  <a href="{% url 'magasin:index' %}">
+                    <img src="{% static 'magasin/images/course.png' %}" class= "image is-64x64 is-fullwidth is-rounded" >
+                  </a>
+                </figure>
+
+            <!--hamburger pour partie responsive-->
+            <a class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+
+          <!--data-target correspond à id- soit navMenu-->
+          <div class="navbar-menu is-active" id="navMenu">
+            <div class="navbar-start">
+                <a href="#" class="navbar-item">
+                   <figure class="media-left">
+                <span class="icon">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </span> Agenda
+                   </figure>
+              </a>
+              <a href="#" class="navbar-item">
+                <figure class="media-left">
+                <i class="fa-solid fa-file-lines"></i> La liste de courses
+                </figure>
+              </a>
+              <a href="#" class="navbar-item">
+                <figure class="media-left">
+                <i class="fa-solid fa-bread-slice"></i> Recettes
+                </figure>
+              </a>
+            </div>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" > Plus </a>
+                <div class="navbar-dropdown is-right">
+                    <a href="/magasin/favoris" class="navbar-item">
+                        {% if user.groups.all.0.name == 'produits_favoris' %}
+                        Produits favoris
+                        {% endif %}
+                    </a>
+                    <a href="/magasin/login" class="navbar-item">
+                        {% if user.is_authenticated %}
+                        Se déconnecter ({{ user.first_name }})
+                        {% else %}
+                        Se connecter
+                        {% endif %}
+                    </a>
+
+                   {% if user.is_staff %}
+            <a href="/admin" class="navbar-item">
+                Page administrateur
+            </a>
+            {% endif %}
+                </div>
+            </div>
+          </div> <!-- Fin de navbar-end-->
+
+        </nav>
+      </div>
+
+<!--PAGE CENTRALE : index.html-->
+
+
+ {% block content %}{% endblock content %}
+
+<!--FOOTER-->
+
+      <div class="hero-foot ">
+        <div class="block has-background-danger-light p-5"></div> <!--règle épaisseur-->
+        <div class="container">
+          <section class="section p-0"> <!--suppression de padding-->
+            <div class="columns">
+
+                <div class="column">
+                  <nav class="menu">
+                    <p class="menu-label mb-0">Réseaux</p> <!--suppression de margin bas-->
+                      <div class="menu-list is-size-7">
+                        <div>
+                           <figure class="media-left">
+                          <a href="https://bulma.io/documentation/layout/level/" >
+                          <span class="icon"><i class="fa-brands fa-instagram"></i>Instagram</span>
+                          </a>
+                           </figure>
+                        </div>
+
+                        <div>
+                          <a href="https://bulma.io/documentation/layout/level/">
+                            <span class="icon"><i class="fa-brands fa-facebook"></i>Facebook</span>
+                          </a>
+                        </div>
+
+                        <div>
+                          <a href="https://bulma.io/documentation/layout/level/">
+                            <span class="icon">
+                              <i class="fa-brands fa-linkedin"></i>Linkedin
+                            </span>
+                          </a>
+                        </div>
+
+
+                      </div>
+                  </nav>
+                </div>
+
+
+
+                <div class="column ">
+                  <nav class="menu">
+                    <p class="menu-label mb-0">Navigation</p>
+                    <div class="menu-list is-size-7 ">
+                        <div><a href="{% url 'magasin:index' %}" class="has-text-black">Accueil</a></div>
+                        <div>
+                          <a href="#" class="has-text-black">Liste de courses</a></div>
+                        <div><a href="#" class="has-text-black">Agenda</a></div>
+                        <div><a href="#" class="has-text-black">Recettes</a></div>
+
+
+                    </div>
+                  </nav>
+                </div>
+
+              <div class="column ">
+                <nav class="menu">  <!--styliser des éléments de navigation.-->
+                  <p class="menu-label mb-0">Accès rapides</p> <!--titre du menu-->
+                    <div class="menu-list is-size-7">
+                      <div><a href="#" class="has-text-black">Ajouter une nouvelle liste</a></div>
+                       <div><a href="#" class="has-text-black">Voir les listes de courses</a></div>
+                       <div><a href="#" class="has-text-black">lien</a></div>
+                    </div>
+                </nav>
+              </div>
+
+              <div class="column ">
+                <nav class="menu">  <!--styliser des éléments de navigation.-->
+                  <p class="menu-label mb-0">Mon espace</p> <!--titre du menu-->
+                  <div class="menu-list is-size-7">
+                      <div><a href="#" class="has-text-black">Changer le mot de passe</a></div>
+                      <div><a href="#" class="has-text-black">Gérer mon profil</a></div>
+                    <div><a href="#">lien</a></div>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="column ">
+                <nav class="menu">  <!--styliser des éléments de navigation.-->
+                  <p class="menu-label mb-0">Informations légales</p> <!--titre du menu-->
+                  <div class="menu-list is-size-7">
+                      <div><a href="#" class="has-text-black">Protection des données personnelles</a></div>
+                      <div><a href="#" class="has-text-black">CGU</a></div>
+                      <div><a href="#">lien</a></div>
+                  </div>
+                </nav>
+              </div>
+            <!--
+            <span id="version" class="has-text-white"></span>
+            <span id="environment"></span> -->
+            </div>
+          </section>
+        </div>
+      </div>
+<!--</FOOTER  ------------------------------------------------------------------->
+
+
+    </section>
+  </body>
+</html>

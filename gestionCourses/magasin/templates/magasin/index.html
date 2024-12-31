@@ -1,0 +1,80 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- .hero-body -->
+<header class="hero-body">
+
+        <div class="is-overlay has-text-centered single-spaced" style="top: 92px;">
+            <h1 class="title is-4-tablet is-3-desktop is-2-widescreen has-text-black">Les courses c'est facile ! </h1>
+
+
+</div>
+</header>
+<!-- /.hero-body -->
+
+<!-- .section -->
+
+            <div class="container">
+                 <div class="columns ">
+                <div class="column">
+                          <div class="content ">
+                                <a href="{% url 'magasin:creer_magasin' %}" class="navbar-item ">
+                                    <button class="button is-primary" type="submit" value="Ajouter">Créez votre magasin</button>
+                                </a>
+<!--                             <button id="affichage" class="button is-danger" onclick="cliquezMoi()">Cliquez!</button>-->
+                          </div>
+                    </div>
+                </div>
+
+                <div class="columns ">
+
+                    <div class="column">
+
+                             <div class="content">
+                              <h1 class="title is-size-5 has-text-centered">Préparez-vos repas</h1>
+                                 <a href="{% url 'agenda:agenda' %}" class="navbar-item ">
+                                     <img src="{% static 'magasin/images/agenda.png' %}" class="image is-square" >
+                                 </a>
+                             </div>
+
+                     </div>
+
+                      <div class="column">
+
+                              <div class="content ">
+                                  <h1 class="title is-size-5 has-text-centered">Faites votre liste</h1>
+                                  <a href="{% url 'magasin:voir_liste_de_courses' %}" class="navbar-item ">
+                                      <img src="{% static 'magasin/images/liste_de_courses.png' %}" class="image is-square is-fullwidth" >
+                                  </a>
+                              </div>
+
+                      </div>
+
+
+
+                    <div class="column">
+                          <div class="content ">
+                              <p class="title is-size-5 has-text-centered">Choisissez votre rayon</p>
+                                <a href="{% url 'magasin:magasin_graphique' %}" class="navbar-item ">
+                                <img src="{% static 'magasin/images/rayons_magasin.png' %}" alt="magasin" class="image is-square">
+                                </a>
+                          </div>
+                    </div>
+                </div>
+
+
+<p><a href="{% url 'magasin:test' %}">Lien vers page des tests</a></p>
+                <p><a href="{% url 'shop:index' %}">Lien vers shop/magasin bis</a></p>
+                <p><a href="{% url 'shop:produit_list' %}">Lien vers shop/liste produits </a></p>
+
+
+
+
+        {% endblock content %}
+
+
+

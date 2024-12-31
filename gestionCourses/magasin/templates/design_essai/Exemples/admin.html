@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<<html class="theme-light">> <!--forcer le mode light sur ecran sombre-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+  </head>
+  <body>
+
+  <nav class="navbar has-shadow">
+    <div class="navbar-brand">
+        <a href="#" class="navbar-item">
+            <img src="./img/smal_logo.png" alt="Logo gCKn">
+        </a>
+        <!--hamburger pour partie responsive-->
+        <a class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+
+    <!--data-target correspond à id- soit navMenu-->
+    <div class="navbar-menu is-active" id="navMenu">
+        <div class="navbar-start">
+            <a href="#" class="navbar-item"><small>Accueil</small></a>
+            <a href="#" class="navbar-item"><small>Blog</small></a>
+            <a href="#" class="navbar-item"><small>Contact</small></a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <div class="navbar-link"><small>Admin</small></div>
+                <div class="navbar-dropdown">
+                    <a href="#" class="navbar-item">Dashboard</a>
+                    <a href="#" class="navbar-item">Parametres</a>
+                    <a href="#" class="navbar-item">Report bug</a>
+                    <a href="#" class="navbar-item">Deconnexion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="columns">
+      <!--mobile prend toute la place-->
+      <div class="column is-4-tablet is-3-desktop is-2-widescreen">
+        <nav class="menu">
+          <p class="menu-label">Menu</p>
+          <ul class="menu-list">
+            <li>
+              <a href="games.html" class="is-active">
+                <span class="icon">
+                  <i class="fas fa-gamepad"></i>
+                </span>
+                Jeux
+              </a>
+            </li>
+
+            <li>
+              <a href="orders.html">
+                <span class="icon">
+                  <i class="fas fa-euro-sign"></i>
+                </span>
+                Commandes
+              </a>
+            </li>
+
+            <li>
+              <a href="customers.html">
+                <span class="icon">
+                  <i class="fas fa-address-book"></i>
+                </span>
+                Clients
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!--2eme colonne-->
+      <div class="column">
+        <h1 class="title">Jeux</h1>
+        <!--level pour mettre un menu horizontal-->
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <p class="is-5"><strong>18</strong> jeux</p>
+            </div>
+
+            <div class="level-item">
+              <!--pour connecter nom et recherche-->
+              <div class="field has-addons">                 
+                <p class="control">
+                  <input type="text" class="input" placeholder="Nom, prix, date...">
+                </p>
+                <p class="control">
+                  <button class="button">Rechercher</button>
+                </p>
+              </div>
+            </div>
+
+            <div class="level-item">
+              <a href="new-game.html" class="button is-info">Nouveau</a>
+            </div>
+          </div> 
+
+          <div class="level-right">
+            <div class="level-item">
+              Filtre
+            </div>
+            <div class="level-item">
+              <div class="select">
+                <!--balise pour formulaires-->
+                <select>
+                  <!--option value pour backend-->
+                  <option>Nom</option>
+                  <option>Prix</option>
+                  <option>Date</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!--pour faire en sorte que la grille ait plusieurs lignes il faut employer multiline-->
+        <div class="columns is-multiline">
+
+          <div class="column is-12-tablet is-6-desktop is-4-widescreen">
+            <div class="box">
+              <div class="media">
+                <div class="media-left">
+                  <img src="./img/fleur.jpg" alt="Affiche fleur" width="80">
+                </div>
+                <div class="media-content">
+                  <p class="title is-5 is-spaced is-marginless">
+                    <a href="edit-book.html">fleur</a>
+                  </p>
+                  <p class="subtitle is-marginless">4.99€</p>
+                  <div class="content is-small">23 septembre 2003<br>
+                    Solo, Stratégie<br>
+                    <a href="edit-book.html">Editer</a>
+                    <span>|</span>
+                    <a href="delete-book.html">Supprimer</a>
+                  </div>                           
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-12-tablet is-6-desktop is-4-widescreen">
+            <div class="box">
+              <div class="media">
+                <div class="media-left">
+                  <img src="./img/fleur.jpg" alt="Affiche fleur" width="80">
+                </div>
+                <div class="media-content">
+                  <p class="title is-5 is-spaced is-marginless">
+                    <a href="edit-book.html">fleur</a>
+                  </p>
+                  <p class="subtitle is-marginless">4.99€</p>
+                  <div class="content is-small">23 septembre 2003<br>
+                    Solo, Stratégie<br>
+                    <a href="edit-book.html">Editer</a>
+                    <span>|</span>
+                    <a href="delete-book.html">Supprimer</a>
+                  </div>                           
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-12-tablet is-6-desktop is-4-widescreen">
+            <div class="box">
+              <div class="media">
+                <div class="media-left">
+                  <img src="./img/fleur.jpg" alt="Affiche fleur" width="80">
+                </div>
+                <div class="media-content">
+                  <p class="title is-5 is-spaced is-marginless">
+                    <a href="edit-book.html">fleur</a>
+                  </p>
+                  <p class="subtitle is-marginless">4.99€</p>
+                  <div class="content is-small">23 septembre 2003<br>
+                    Solo, Stratégie<br>
+                    <a href="edit-book.html">Editer</a>
+                    <span>|</span>
+                    <a href="delete-book.html">Supprimer</a>
+                  </div>                           
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-12-tablet is-6-desktop is-4-widescreen">
+            <div class="box">
+              <div class="media">
+                <div class="media-left">
+                  <img src="./img/fleur.jpg" alt="Affiche fleur" width="80">
+                </div>
+                <div class="media-content">
+                  <p class="title is-5 is-spaced is-marginless">
+                    <a href="edit-book.html">fleur</a>
+                  </p>
+                  <p class="subtitle is-marginless">4.99€</p>
+                  <div class="content is-small">23 septembre 2003<br>
+                    Solo, Stratégie<br>
+                    <a href="edit-book.html">Editer</a>
+                    <span>|</span>
+                    <a href="delete-book.html">Supprimer</a>
+                  </div>                           
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-12-tablet is-6-desktop is-4-widescreen">
+            <div class="box">
+              <div class="media">
+                <div class="media-left">
+                  <img src="./img/fleur.jpg" alt="Affiche fleur" width="80">
+                </div>
+                <div class="media-content">
+                  <p class="title is-5 is-spaced is-marginless">
+                    <a href="edit-book.html">fleur</a>
+                  </p>
+                  <p class="subtitle is-marginless">4.99€</p>
+                  <div class="content is-small">23 septembre 2003<br>
+                    Solo, Stratégie<br>
+                    <a href="edit-book.html">Editer</a>
+                    <span>|</span>
+                    <a href="delete-book.html">Supprimer</a>
+                  </div>                           
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-12-tablet is-6-desktop is-4-widescreen">
+            <div class="box">
+              <div class="media">
+                <div class="media-left">
+                  <img src="./img/fleur.jpg" alt="Affiche fleur" width="80">
+                </div>
+                <div class="media-content">
+                  <p class="title is-5 is-spaced is-marginless">
+                    <a href="edit-book.html">fleur</a>
+                  </p>
+                  <p class="subtitle is-marginless">4.99€</p>
+                  <div class="content is-small">23 septembre 2003<br>
+                    Solo, Stratégie<br>
+                    <a href="edit-book.html">Editer</a>
+                    <span>|</span>
+                    <a href="delete-book.html">Supprimer</a>
+                  </div>                           
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>     
+  </section>
+
+  <script src="main.js"></script>
+  </body>
+</html>

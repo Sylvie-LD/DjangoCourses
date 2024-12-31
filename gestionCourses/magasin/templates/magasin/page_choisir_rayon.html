@@ -1,0 +1,53 @@
+
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="hero-body">
+    <div class="content">
+
+        <!-- COLONNE DROITE RECHERCHE -->
+        <div class="column">
+            <div class="title has-text-danger">
+                Choisissez votre rayon
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <select name="id_rayon">
+                    {% for rayon in liste_rayons %}
+                    <option value="{{ rayon.id_rayon }}">
+                        {{ rayon.nom_rayon }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Sélectionnez le rayon">
+            </form>
+        </div>
+
+        <div class="column">
+            <a href="#" class="navbar-item">
+                <img src="{% static 'magasin/images/magasin.png' %}" alt="magasin">
+            </a>
+        </div>
+
+
+    {% if rayon %}
+         <div class="column">
+            <div class="container">
+                <h1 class="title is-size-4" >Produits du {{ rayon.nom_rayon }}</h1>
+                {% for detail_etagere in detail_etageres %}
+                <h2 class="is-size-6">{{ detail_etagere.etagere.nom_etagere }}</h2>
+
+                <ul>
+                    {% for produit in detail_etagere.produits %}
+                    <li>{{ produit.nom_produit }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+    </div>
+{% endblock content %}

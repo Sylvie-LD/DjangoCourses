@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <script defer
+            src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+  </head>
+  <body>
+  <section class="hero is-info is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <!--mode responsive_ inspecteur : clic sur toggle device bar pour voir le mode respoonsive cf documentation-->
+            <div class="columns is-centered ">
+                <div class="column is-5-tablet is-4-destop is-3-widescreen">
+                    <form class="box">
+                        <div class=field.has-text-centered>
+                            <img src="./img/small_logo.png" alt="Logo gCKn">
+                        </div>
+                        <div class="field">
+                            <label for="email" class="label">Email</label>
+                            <!--class control necessaire pour mettre l'icone-->
+                            <div class="control has-icons-left">
+                                <input type="email" name="email" id="email" placeholder="email@example.com" class="input" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-enveloppe"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="password" class="label">Mot de passe</label>
+                            <!--class control necessaire pour mettre l'icone-->
+                            <div class="control has-icons-left">
+                                <input type="password" name="password" id="password" placeholder="****" class="input" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="rememberme" class="checkbox">
+                                <input type="checkbox" id="remeberme">
+                                Se souvenir de moi
+                            </label>  
+                        </div>
+
+                        <div class="field">
+                            <button class="button is-success">
+                                Connexion
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+      <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
+    </div>
+  </section>
+  </body>
+</html>

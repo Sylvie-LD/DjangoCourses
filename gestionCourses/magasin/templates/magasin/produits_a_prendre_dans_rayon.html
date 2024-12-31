@@ -1,0 +1,33 @@
+<!--pour avoir un affichage avec le résultat dessous-->
+
+{% extends 'magasin/base.html' %}
+{% block content %}
+
+    <div class='container'>
+       <h1 class='title has-text-centered'> Selectionnez votre rayon :</h1>
+       <form method = "post">
+        {% csrf_token %}
+
+        <select name = "id_rayon" >
+        {% for rayon in liste_rayons %}
+            <option value="{{rayon.id_rayon}}" name ="id_rayon">{{rayon.nom_rayon}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Valider">
+        </form>
+    </div>
+
+{% if rayon %}
+<div class='container'>
+<h1>Voici la liste des produits du magasin pour le {{rayon.nom_rayon}} </h1>
+   {% for detail_etagere in detail_etageres %}
+        <h2>{{ detail_etagere.etagere.nom_etagere }}</h2>
+        <ul>
+            {% for produit in detail_etagere.produits %}
+                <li>{{ produit.nom_produit }}</li>
+            {% endfor %}
+        </ul>
+</div>
+    {% endfor %}
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form action = "{% url 'magasin:ajouter_liste_courses' %}" method="post">
+    {% csrf_token %}
+   <div class="container">
+        <div class="mt-6 mx-6">
+        {% crispy form %}
+            <button class="button is-primary" type ="submit" value = "Ajouter">Ajouter</button>
+        </div>
+   </div>
+</form>
+
+{% if save_error %}
+    <p>Une erreur s'est produite lors de l'enregistrement de la liste en base de données</p>
+{% else %}
+    {% if is_create == False %}
+    <p>La liste a bien été enregistrée en base de données</p>
+  <p><a href="{% url 'magasin:voir_liste_de_courses' %}">Retour aux listes de courses</a></p>
+
+    {% endif %}
+{% endif %}
+
+{% endblock content %}

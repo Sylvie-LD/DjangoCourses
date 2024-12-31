@@ -1,0 +1,25 @@
+
+
+
+/* debug.css
+
+/* Ajouter une bordure rouge autour de tous les éléments */
+* {
+    outline: 1px solid red !important;
+}
+
+/* Mettre en évidence les blocs */
+div {
+    outline: 2px dashed blue !important;
+}
+
+/* Afficher les marges et les paddings */
+* {
+    box-shadow: 0 0 0 1px rgba(0, 255, 0, 0.5); /* Marges */
+}
+*:before,
+*:after {
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5); /* Paddings */
+    content: '';
+    display: block;
+} 

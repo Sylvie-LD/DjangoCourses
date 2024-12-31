@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rayons</title>
+</head>
+<body>
+    <h1>Liste des produits pour le {{ rayon.nom_rayon }}</h1>
+    {% for detail_etagere in details_etageres %}
+        <h2>{{ detail_etagere.etagere.nom_etagere }}</h2>
+        <ul>
+            {% for produit in detail_etagere.produits %}
+                <li>{{ produit.nom_produit }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>

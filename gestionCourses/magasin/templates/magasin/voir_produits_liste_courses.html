@@ -1,0 +1,41 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class="title is-1 has-text-black">Produits de la {{ liste_courses.nom_liste}} </h1>
+    <table>
+<tr>
+<th>NOM DU PRODUIT</th>
+<th>QUANTITE</th>
+<th colspan="2">ACTIONS</th>
+</tr>
+{% for produit in liste_courses.elements.all %}
+<tr>
+    <td>{{produit.produit.nom_produit}}</a></td>
+    <td>{{produit.quantite}}</td>
+    <td><a href="{% url 'magasin:modifier_produit_liste_courses' produit.id_element_liste %}">🖍️</a></td> <!--windows+.-->
+    <td><a href="{% url 'magasin:supprimer_produit_liste_courses' produit.id_element_liste %}">❌</a></td>
+</tr>
+{% endfor %}
+    </table>
+
+  <div class="block">
+        <div class="container">
+            <div class="columns is-mobile is-vcentered"> <!-- Flexbox container -->
+                <div class="column">
+                    <a class="button is-small is-link" href="{% url 'magasin:voir_liste_de_courses' %}">Retour aux listes de courses</a>
+                </div>
+                <div class="column is-narrow">
+                    <a class="button is-danger is-rounded is-large-text" href="{% url 'magasin:ajouter_produit_liste_courses' id_liste_courses=liste_courses.id_liste_courses %}">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+

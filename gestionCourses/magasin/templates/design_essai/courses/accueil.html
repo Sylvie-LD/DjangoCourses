@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="theme-light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page accueil courses!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+  </head>
+
+  <body>
+    <section class="hero has-background-light is-fullheight">
+      <div class="hero-head">
+        <!--BARRE DE NAVIGATION-->
+        <nav class="navbar has-background-danger-light">
+          <div class="navbar-brand">
+            <a href="#" class="navbar-item is-flex is-flex-direction-column is-align-items-center">
+              <img src="img/caddie.png" alt="logo courses" class="image is-64x64"> <!-- Ajustez cette classe pour agrandir ou réduire l'image -->
+              <span class="is-size-5 has-text-weight-bold">Les courses c'est facile !</span>
+            </a>
+            <!--hamburger pour partie responsive-->
+            <a class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+
+          <!--data-target correspond à id- soit navMenu-->
+          <div class="navbar-menu is-active" id="navMenu">
+            <div class="navbar-start">
+              <a href="#" class="navbar-item">
+                <span class="icon">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </span> Agenda</a>
+              <a href="#" class="navbar-item ">
+                <i class="fa-solid fa-file-lines"></i>
+                La liste de courses</a>
+              <a href="#" class="navbar-item">
+                <i class="fa-solid fa-bread-slice"></i>
+                Recettes</a>
+              <div class="buttons">
+                <a class="button is-warning is-light is-large">
+                  <strong>Les courses c'est facile !</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable ">
+              <!-- augmente taille et modifie marge droite et gauche -->
+              <div class="navbar-link mx-4 is-size-5">Plus</div>
+              <div class="navbar-dropdown">
+                <a href="#" class="navbar-item">Produits favoris</a>
+                <a href="#" class="navbar-item">Paramètres</a>
+                <a href="#" class="navbar-item">Déconnexion</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!--CHOIX DU RAYON-->
+      <div class="hero-body m-auto p-0">
+        <section class="section">
+          <div class="column">
+            <div class="title has-text-danger">Choisissez votre rayon</div>
+            <select name="id_rayon">
+              <option value="" name=""></option>
+            </select>
+            <input type="submit" value="selectionnez le rayon">
+          </div>
+
+          <div class="column">
+            <a href="#" class="navbar-item ">
+              <img src="./img/caddie.png" alt="magasin" class="image is-16by9">
+            </a>
+          </div>
+        </section>
+      </div>
+      <!-- FOOTER-->
+      <div class="hero-foot">
+        <div class="block has-background-danger-light p-5"></div> <!--règle épaisseur-->
+        <div class="container">
+          <section class="section p-0"> <!--suppression de padding-->
+            <div class="columns">
+              <div class="column">
+                <nav class="menu">
+                  <p class="menu-label mb-0">Réseaux</p> <!--suppression de margin bas-->
+                  <div class="is-size-7">
+                    <div>
+                      <a href="https://bulma.io/documentation/layout/level/" class="has-text-black">
+                        Instagram
+                      </a>
+                    </div>
+                    <div>
+                      <a href="https://bulma.io/documentation/layout/level/" class="has-text-black">
+                        Facebook
+                      </a>
+                    </div>
+                    <div>
+                      <a href="https://bulma.io/documentation/layout/level/" class="has-text-black">
+                        LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="column">
+                <nav class="menu">
+                  <p class="menu-label mb-0">Navigation</p>
+                  <div class="is-size-7">
+                    <div><a href="#" class="has-text-black">Accueil</a></div>
+                    <div><a href="#" class="has-text-black">Liste de courses</a></div>
+                    <div><a href="#" class="has-text-black">Agenda</a></div>
+                    <div><a href="#" class="has-text-black">Recettes</a></div>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="column">
+                <nav class="menu">
+                  <p class="menu-label mb-0">Accès rapides</p>
+                  <div class="is-size-7">
+                    <div><a href="#" class="has-text-black">Ajouter une nouvelle liste</a></div>
+                    <div><a href="#" class="has-text-black">Ajouter un nouveau produit</a></div>
+                    <div><a href="#" class="has-text-black">lien</a></div>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="column">
+                <nav class="menu">
+                  <p class="menu-label mb-0">Mon espace</p>
+                  <div class="is-size-7">
+                    <div><a href="#" class="has-text-black">Changer le mot de passe</a></div>
+                    <div><a href="#" class="has-text-black">Gérer mon profil</a></div>
+                    <div><a href="#" class="has-text-black">lien</a></div>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="column">
+                <nav class="menu">
+                  <p class="

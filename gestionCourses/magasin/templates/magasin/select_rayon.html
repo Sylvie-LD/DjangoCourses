@@ -1,0 +1,19 @@
+{% extends 'magasin/base.html' %}
+
+{% block content %}
+
+<h1>Formulaire pour la consultation des rayons d'un magasin(select_rayon) </h1>
+<form action="{% url 'magasin:proposition_produits' %}" method = "post">
+    {% csrf_token %}
+
+    <select name = "id_rayon" >
+        {% for rayon in liste_rayons %}
+        <option value="{{rayon.id_rayon}}" name ="id_rayon">{{rayon.nom_rayon}}</option>
+
+        {% endfor %}
+    </select>
+
+    <input type="submit">
+</form>
+
+{% endblock content %}

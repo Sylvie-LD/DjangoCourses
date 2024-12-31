@@ -1,0 +1,48 @@
+2024-09-05 10:54:06,773 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 10:55:37,018 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:07:24,571 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:14:57,876 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:15:10,935 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:24:10,635 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:24:15,950 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:28:15,794 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:29:31,351 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:30:45,453 gestionCourses WARNING le contexte pour la view est vide
+2024-09-05 11:30:45,453 gestionCourses WARNING sortie dans la view 'Index', rendu du template...
+2024-09-05 11:44:59,558 gestionCourses INFO le contexte pour la view est vide
+2024-09-05 11:44:59,558 gestionCourses INFO sortie dans la view 'Index', rendu du template...
+2024-09-05 11:45:09,522 gestionCourses INFO le contexte pour la view est vide
+2024-09-05 11:45:09,522 gestionCourses INFO sortie dans la view 'Index', rendu du template...
+2024-09-05 11:56:27,588 gestionCourses WARNING Accès au template 'favoris'
+2024-09-05 11:58:30,560 gestionCourses WARNING Accès au template 'favoris'
+2024-09-05 11:59:59,668 gestionCourses WARNING Accès au template 'favoris'
+DEBUG 2024-09-05 12:20:23,284 settings Ceci est un message DEBUG.
+INFO 2024-09-05 12:20:23,284 settings Ceci est un message INFO.
+WARNING 2024-09-05 12:20:23,284 settings Ceci est un message WARNING.
+ERROR 2024-09-05 12:20:23,284 settings Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:20:23,284 settings Ceci est un message CRITICAL.
+DEBUG 2024-09-05 12:20:23,645 settings Ceci est un message DEBUG.
+INFO 2024-09-05 12:20:23,645 settings Ceci est un message INFO.
+WARNING 2024-09-05 12:20:23,645 settings Ceci est un message WARNING.
+ERROR 2024-09-05 12:20:23,645 settings Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:20:23,645 settings Ceci est un message CRITICAL.
+DEBUG 2024-09-05 12:26:10,506 settings Ceci est un message DEBUG.
+INFO 2024-09-05 12:26:10,506 settings Ceci est un message INFO.
+WARNING 2024-09-05 12:26:10,506 settings Ceci est un message WARNING.
+ERROR 2024-09-05 12:26:10,506 settings Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:26:10,506 settings Ceci est un message CRITICAL.
+DEBUG 2024-09-05 12:26:10,977 settings Ceci est un message DEBUG.
+INFO 2024-09-05 12:26:10,977 settings Ceci est un message INFO.
+WARNING 2024-09-05 12:26:10,977 settings Ceci est un message WARNING.
+ERROR 2024-09-05 12:26:10,977 settings Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:26:10,977 settings Ceci est un message CRITICAL.
+DEBUG 2024-09-05 12:28:36,355 settings Ceci est un message DEBUG.
+INFO 2024-09-05 12:28:36,356 settings Ceci est un message INFO.
+WARNING 2024-09-05 12:28:36,356 settings Ceci est un message WARNING.
+ERROR 2024-09-05 12:28:36,356 settings Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:28:36,356 settings Ceci est un message CRITICAL.
+DEBUG 2024-09-05 12:28:37,031 settings Ceci est un message DEBUG.
+INFO 2024-09-05 12:28:37,031 settings Ceci est un message INFO.
+WARNING 2024-09-05 12:28:37,032 settings Ceci est un message WARNING.
+ERROR 2024-09-05 12:28:37,032 settings Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:28:37,032 settings Ceci est un message CRITICAL.

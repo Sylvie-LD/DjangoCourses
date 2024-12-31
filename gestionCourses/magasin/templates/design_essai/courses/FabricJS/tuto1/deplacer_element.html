@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+   </head>
+
+<body>
+    <canvas id="c" width="800" height="600"></canvas>
+    <input id="b" type = "button" value ='Aller à droite'>
+    <button onclick='bascule(modes.deplacerEtagere)'>déplacer le rectangle</button>
+
+
+    <script>
+        
+// Créer le canevas 
+var canvas = new fabric.Canvas('c');
+
+// Créez des objets
+var rect = new fabric.Rect({
+    width: 200,
+    height: 200,
+    left: 100,
+    top: 150,
+    fill: 'red',
+});
+    
+
+canvas.add(rect); 
+
+
+// Ajouter un gestionnaire d'événement pour le bouton
+document.getElementById('b').addEventListener('click', function() {
+    rect.set('left', rect.left + 10); // Utilisez 'set' pour modifier la propriété
+ 
+    canvas.renderAll();
+    console.log("left:" + rect.left);
+    console.log("top:" + rect.top);
+    console.log("angle:" + rect.angle);
+ 
+        })
+    </script>
+</body>
+</html>

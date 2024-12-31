@@ -1,0 +1,47 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+                     <h1 class="title is-1 has-text-black">Voici les rayons existants </h1>
+                    <div class="block">
+        <div class="container">
+            <div class ="columns">
+                 <div class ="column">
+                     <table>
+                         <tr>
+                             <th>NOM</th>
+                             <th>ID</th>
+                             <th colspan="2">ACTIONS</th>
+                         </tr>
+                         {% for rayon in rayons %}
+                         <tr>
+                             <td>{{rayon.nom_rayon}}</td>
+                             <td>{{rayon.id_rayon}}</td>
+                             <td><a href="{% url 'magasin:modifier_rayon_magasin' rayon.id_rayon %}">🖍️</a></td> <!--windows+.-->
+                             <td><a href="{% url 'magasin:supprimer_rayon_magasin' rayon.id_rayon %}">❌</a></td>
+                         </tr>
+                         {% endfor %}
+                     </table>
+                </div>
+                </div>
+
+
+
+                    <div class="has-text-right">
+                        <a class="button is-danger is-rounded is-large-text" href="{% url 'magasin:ajouter_rayon_magasin' %}">
+                            <span class="icon is-small">
+                                <i class="fa-solid fa-plus"></i>
+                            </span>
+                            <span>Ajouter un rayon</span>
+                        </a>
+                    </div>
+                </div>
+
+        </div>
+</div>
+
+    <p><a href="{% url 'magasin:creer_magasin' %}">Retour à la création du magasin</a></p>
+
+</form>
+{% endblock content %}

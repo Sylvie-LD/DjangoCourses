@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <style>
+        #b, #d {
+            position: relative;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c" width="800" height="600"></canvas>
+
+    <div class="button-container">
+        <button id="b" type="button">Aller à droite</button>
+        <button id="d" type="button">Activer/Désactiver le déplacement manuel</button>
+    </div>
+
+    <script>
+        // Créer le canevas 
+        var canvas = new fabric.Canvas('c');
+
+        // Créez un rectangle
+        var rect = new fabric.Rect({
+            width: 200,
+            height: 200,
+            left: 100,
+            top: 150,
+            fill: 'red',
+            selectable: false, // Empêche la sélection du rectangle au départ
+            evented: false     // Empêche toute interaction avec le rectangle au départ
+        });
+
+        canvas.add(rect); 
+
+        // Fonction pour gérer le clic sur le bouton "Aller à droite"
+        document.getElementById('b').addEventListener('click', function() {
+            // Déplacer le rectangle de 10px vers la droite
+            rect.set('left', rect.left + 10);
+            canvas.renderAll();
+
+            // Désactiver la sélection manuelle
+            document.getElementById('d').disabled = true;
+            rect.set('selectable', false);
+            rect.set('evented', false);
+            canvas.discardActiveObject(); // Désélectionner l'objet actif
+        });
+
+        // Fonction pour gérer le clic sur le bouton "Activer/Désactiver le déplacement manuel"
+        document.getElementById('d').addEventListener('click', function() {
+            var isSelectable = rect.selectable; // Vérifier si le rectangle est actuellement sélectionnable
+
+            // Basculer l'état de la sélection manuelle
+            rect.set('selectable', !isSelectable);
+            rect.set('evented', !isSelectable);
+
+            if (!isSelectable) {
+                // Si on active la sélection manuelle, désactiver "Aller à droite"
+                document.getElementById('b').disabled = true;
+                canvas.setActiveObject(rect); // Activer l'objet
+            } else {
+                // Si on désactive la sélection manuelle, réactiver "Aller à droite"
+                document.getElementById('b').disabled = false;
+                canvas.discardActiveObject(); // Désélectionner l'objet actif
+            }
+
+            canvas.renderAll();
+        });
+    </script>
+</body>
+</html>

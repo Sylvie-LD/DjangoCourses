@@ -1,0 +1,44 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class="title is-1 has-text-black">Voici les produits existants </h1>
+<table>
+    <tr>
+        <th>PRODUIT</th>
+        <th>ID</th>
+        <th>CATEGORIE</th>
+        <th>RAYON</th>
+        <th>ÉTAGÈRE</th>
+
+        <th colspan="2">ACTIONS</th>
+    </tr>
+    {% for detail in produits_details %}
+    <tr>
+        <td>{{ detail.produit.nom_produit }}</td>
+        <td>{{ detail.produit.id_produit }}</td>
+        <td>{{ detail.categorie.nom_categorie_produit }}</td> <!-- Afficher la catégorie ou "Non catégorisé" -->
+        <td>{{ detail.rayon.nom_rayon }}</td>
+        <td>{{ detail.etagere.nom_etagere }}</td>
+        <td><a href="">🖍️</a></td>
+        <td><a href="{% url 'magasin:supprimer_produit_magasin' detail.produit.id_produit %}">❌</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="block">
+    <div class="container">
+        <div class="has-text-right">
+            <a class="button is-danger is-rounded is-large-text" href="{% url 'magasin:add_produit' %}">
+                <span class="icon is-small">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+                <span>Ajouter un produit</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<p><a href="{% url 'magasin:creer_magasin' %}">Retour à la création du magasin</a></p>
+
+{% endblock content %}

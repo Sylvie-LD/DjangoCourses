@@ -1,0 +1,23 @@
+{% extends 'magasin/base.html' %}
+
+{% block content %}
+<p>Test du {{ rayon.nom_rayon }} Pour tester le {{ nom_rayon }} <a href="{% url 'magasin:rayons' %}">Lien</a></p>
+
+<p>Vue select_rayon qui permet de selectionner un rayon via un formulaire (celui dont j'ai besoin pour index) va avec proposition_produit <a href="{% url 'magasin:select_rayon' %}">Lien</a></p>
+
+  <p>Vue produits_a_prendre_dans_rayon, essai pour avoir la selection et le resultat
+<a href="{% url 'magasin:produits_a_prendre_dans_rayon' %}">Lien</a></p>
+
+  <p>Vue voir_produits_magasin
+<a href="{% url 'magasin:voir_produits_magasin_par_rayon' %}">Lien</a></p>
+
+<p><a href="{% url 'magasin:page_choisir_rayon' %}">Lien vers choisir rayon</a></p>
+
+ <p>Vue proposition produits<a href="{% url 'magasin:proposition_produits' %}">Lien</a></p>
+
+ <p>Visualiser produits magasin<a href="{% url 'magasin:visualiser_produits_magasin' %}">Lien</a></p>
+
+
+
+
+{% endblock content %}

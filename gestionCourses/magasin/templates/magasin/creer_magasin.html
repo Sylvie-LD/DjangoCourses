@@ -1,0 +1,49 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- Ajoute un produit en base de données -->
+
+<h1 class="title is-1 has-text-black">Créez votre magasin</h1>
+
+<div class="container">
+    <div class="content">
+        <h2 class="subtitle is-3 has-text-black">
+            <a class="icon" href="{% url 'magasin:voir_rayons_magasin' %}">
+                <i class="fa-solid fa-store"></i>
+            </a>
+            Créez vos rayons
+        </h2>
+
+        <h2 class="subtitle is-3 has-text-black">
+           <a class="icon" href="{% url 'magasin:voir_categorie_produits' %}">
+                <i class="fa-solid fa-tags"></i>
+            </a>
+            Créez vos catégories de produit
+        </h2>
+
+        <h2 class="subtitle is-3 has-text-black">
+            <a class="icon" href="{% url 'magasin:voir_produits_magasin' %}">
+                <i class="fa-solid fa-box"></i>
+            </a>
+            Créez vos produits
+        </h2>
+
+        <h2 class="subtitle is-3 has-text-black">
+            <a class="icon" href="{% url 'magasin:voir_produits_magasin_par_rayon' %}">
+                <i class="fa-solid fa-box"></i>
+            </a>
+            Voir les produits par rayon par étagère
+        </h2>
+         <h2 class="subtitle is-3 has-text-black">
+            <a class="icon" href="{% url 'magasin:voir_etageres_magasin' %}">
+                <i class="fa-solid fa-box"></i>
+            </a>
+            Voir les étagères
+        </h2>
+
+
+    </div>
+</div>
+
+{% endblock %}

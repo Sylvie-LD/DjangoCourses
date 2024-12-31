@@ -1,0 +1,6 @@
+WARNING 2024-09-05 12:12:59,620 te_st This is a warning message.
+DEBUG 2024-09-05 12:14:31,154 te_st Ceci est un message DEBUG.
+INFO 2024-09-05 12:14:31,154 te_st Ceci est un message INFO.
+WARNING 2024-09-05 12:14:31,154 te_st Ceci est un message WARNING.
+ERROR 2024-09-05 12:14:31,154 te_st Ceci est un message ERROR.
+CRITICAL 2024-09-05 12:14:31,154 te_st Ceci est un message CRITICAL.

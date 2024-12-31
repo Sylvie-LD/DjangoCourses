@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Accueil</title>
+
+</head>
+<body>
+    <header>
+        <h1>Bienvenue dans l'Agenda</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'agenda:agenda' %}">Données de l'Agenda</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Liste des Événements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de l'Événement</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evenement in evenements %}
+                <tr>
+                    <td>{{ evenement.nom }}</td>
+                    <td>{{ evenement.date }}</td>
+                    <td>{{ evenement.heure }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">Aucun événement trouvé.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Votre Société</p>
+    </footer>
+</body>
+</html>

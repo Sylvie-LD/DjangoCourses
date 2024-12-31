@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Crash Course</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jscolor@2.4.6/jscolor.min.js"></script>
+
+</head>
+<body>
+
+<button onclick='toggleMode(modes.pan)'>Toggle Pan</button>
+<button onclick='toggleMode(modes.drawing)'>Toggle Drawing</button>
+<input id='colorPicker' type="color" value="#000000">
+<button onclick='clearCanvas(canvas, svgState)'>Clear</button>
+<button onclick='restoreCanvas(canvas, svgState, bgUrl)'>Restore</button>
+
+<canvas id="canvas"></canvas>
+
+    <div id="bottomButtons">
+        <div class="buttonsWrapper">
+            <p class="buttonsTitle">Objects</p>
+            <div class="buttons">
+                <button onclick="createRect(canvas)">Rect</button>
+                <button onclick="createCirc(canvas)">Circ</button>
+                <button onclick="groupObjects(canvas, group, true)">Group</button>
+                <button onclick="groupObjects(canvas, group, false)">Ungroup</button>
+            </div>
+
+        </div>
+
+        <div class="buttonsWrapper">
+            <p class="buttonsTitle">Image</p>
+            <input id="myImg" type="file" accept="image/*">
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

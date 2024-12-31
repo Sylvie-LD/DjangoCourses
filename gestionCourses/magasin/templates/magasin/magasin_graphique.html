@@ -1,0 +1,50 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+{% block content %}
+   <link rel="stylesheet" href="{% static 'magasin/css/style.css' %}">
+
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+
+    <section class="section">
+        <div class="container is-fluid">
+
+            <div class="columns">
+                <div class="column is-8">
+                    <div class="box has-text-centered">
+                        <p id="statusMessage" class="title is-4">Cliquez sur le rayon pour voir les produits à prendre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-5">
+                    <div id="canvasContainer" class="canvas-container">
+                    <canvas id="magasinCanvas"></canvas>
+                        </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+<!-- <script src="{% static 'magasin/scripts/canvas.js' %}"></script>-->
+<!--  <script src="{% static 'magasin/scripts/background.js' %}"></script>-->
+<!--    <script src="{% static 'magasin/scripts/elements.js' %}"></script>-->
+<!--  <script src="{% static 'magasin/scripts/api.js' %}"></script>-->
+<!--  <script src="{% static 'magasin/scripts/chariot.js' %}"></script>-->
+<!--  <script src="{% static 'magasin/scripts/caisse.js' %}"></script>-->
+
+  <script src="{% static 'magasin/scripts/script.js' %}"></script>
+
+{% endblock content %}
+
+
+
+
+

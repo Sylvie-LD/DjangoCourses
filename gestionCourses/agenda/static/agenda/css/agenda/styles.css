@@ -1,0 +1,7 @@
+
+
+/* CSS pour styliser le texte "Journée" si besoin */
+.fc-daygrid-day-top {
+    font-weight: bold;
+    color: #333; /* Couleur personnalisée */
+}

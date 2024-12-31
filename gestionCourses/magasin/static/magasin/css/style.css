@@ -1,0 +1,12 @@
+.custom-page {
+    padding: 20px;
+}
+
+#magasinCanvas {
+    width: 100%; /* Le canvas prendra toute la largeur disponible */
+    height: auto; /* Ajuste la hauteur automatiquement en fonction de la largeur pour maintenir le ratio d'aspect */
+    border: 4px solid black; /* Bordure noire */
+    border-radius: 8px; /* Coins arrondis */
+    display: block; /* S'assure que le canvas se comporte comme un bloc pour éviter des marges indésirables */
+}
+

@@ -1,0 +1,206 @@
+# --CREATION--------------------------------------------------------------------------------------------
+
+# def magasin_graphique(request):
+#     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+#         # Traitement AJAX
+#         data = {} # dictionnaire, clé est l'identifiant d'un rayon, et la valeur associée est une liste de noms de produits.
+#
+#         return JsonResponse(data)
+#
+#     # Code pour rendre la page HTML si la requête n'est pas AJAX
+#     liste_rayons = Rayon.objects.all() # Récupère tous les rayons pour les passer au template
+#     logger.info("Entrée dans le template magasin_graphique.html qui comprend %d rayons.", len(liste_rayons))
+#
+#     logger.info("Liste des rayons pour le contexte: %s", liste_rayons)  # Logue la liste des rayons
+#
+#     context = {
+#         'liste_rayons': liste_rayons
+#     }
+#     return render(request, 'magasin/magasin_graphique.html', context)
+
+# --------------------------------------------------------
+
+from django.shortcuts import render
+
+# def voir_produits_magasin(request):
+#     produits = Produit.objects.all()
+#     print("Produits récupérés :")
+#     for produit in produits:
+#         print(f"ID: {produit.id_produit}, Nom: {produit.nom_produit}, ID Catégorie: {produit.id_categorie_produit}")
+#
+#     # Extraire les identifiants distincts de catégories des produits: récupère tous les produits, values_list permet d'extraire r les identifiants du champ id_categorie_produit sous forme de liste, flat true pour avoir une liste simple et distinc pour éviter doublons
+#     ids_categorie = produits.values_list('id_categorie_produit', flat=True).distinct()
+#     print("\nIdentifiants de catégories distincts extraits des produits :")
+#     print(ids_categorie)
+#
+#     # Obtenir les catégories correspondant à ces identifiants, on filtre les ids qui correspondent aux catégories uniques crées au-dessus (ex ids_categorie =[1,2,3] bdd a id_categorie_produit 1,2,4, categories contiendra : 1 et 2
+#     categories = CategorieProduit.objects.filter(id_categorie_produit__in=ids_categorie)
+#
+#     # Créer un dictionnaire pour les catégories avec leur ID comme clé; nom de catégorie = valeur, on itère sur le queryset categories
+#     categories_dict = {
+#         categorie.id_categorie_produit: categorie.nom_categorie_produit
+#         for categorie in categories
+#     }
+#     print("\nDictionnaire des catégories (ID -> Nom) :")
+#     for id_categorie, nom_categorie in categories_dict.items():
+#         print(f"ID de la catégorie : {id_categorie}, Nom de la catégorie : {nom_categorie}")
+#
+#     # Créer des dictionnaires pour les étagères et les rayons avec leur ID comme clé
+#     etageres_dict = {etagere.id_etagere: etagere for
+#                      etagere in Etagere.objects.all()}
+#     rayons_dict = {rayon.id_rayon: rayon for rayon in
+#                    Rayon.objects.all()}
+#
+#     print(
+#         "\nDictionnaire des étagères (ID -> Étagère) :")
+#     for id_etagere, etagere in etageres_dict.items():
+#         print(
+#             f"ID de l'étagère : {id_etagere}, Étagère : {etagere}")
+#
+#     print("\nDictionnaire des rayons (ID -> Rayon) :")
+#     for id_rayon, rayon in rayons_dict.items():
+#         print(
+#             f"ID du rayon : {id_rayon}, Rayon : {rayon}")
+#
+#     produits_list = []
+#     associations = AssociationEtagereProduit.objects.all()
+#
+#     for produit in produits:
+#         etagere = None
+#         rayon = None
+#
+#         # Trouver l'association avec l'étagère
+#         for association in associations:
+#             if association.id_produit == produit.id_produit:
+#                 etagere = etageres_dict.get(
+#                     association.id_etagere)
+#                 if etagere:
+#                     rayon = rayons_dict.get(
+#                         etagere.id_rayon)
+#                 break
+#
+#         nom_etagere = etagere.nom_etagere if etagere else 'Aucune étagère'
+#         nom_rayon = rayon.nom_rayon if rayon else 'Aucun rayon'
+#
+#         # Créer un dictionnaire pour chaque produit avec les informations supplémentaires
+#         produit_dict = {
+#             'id_produit': produit.id_produit,
+#             'nom_produit': produit.nom_produit,
+#             'nom_categorie': categories_dict.get(produit.id_categorie_produit, 'Aucune catégorie'),
+#             'nom_etagere': nom_etagere,
+#             'nom_rayon': nom_rayon
+#         }
+#         produits_list.append(produit_dict)
+#         print(f"\nProduit ID: {produit_dict['id_produit']}, Nom du produit: {produit_dict['nom_produit']}, Catégorie : {produit_dict['nom_categorie']}, Étagère : {produit_dict['nom_etagere']}, Rayon : {produit_dict['nom_rayon']}")
+#
+#     # Passer les produits au template
+#     context = {'produits': produits_list}
+#     return render(request, 'magasin/voir_produits_magasin.html', context)
+
+
+def add_produit(request):
+    save_error = False
+    is_create = True
+
+    if request.method == 'POST':
+        is_create = False
+        form = Produitform(request.POST)
+        print("Formulaire POST reçu.")
+
+        if form.is_valid():
+            print("Formulaire valide.")
+
+            nom = form.cleaned_data["nom"]
+            categorie_produit = form.cleaned_data["categorie_produit"]
+            etagere = form.cleaned_data["etagere"]
+
+            try:
+                id_categorie_produit = categorie_produit.id_categorie_produit
+                id_etagere = etagere.id_etagere
+                print(f"Préparation de l'enregistrement du produit: Nom={nom}, Catégorie={categorie_produit}, Étagère={etagere},")
+                produit = Produit(nom_produit=nom,
+                    id_categorie_produit=id_categorie_produit)
+                produit.save()
+
+                # Créer une association entre le produit et l'étagère
+                association = AssociationEtagereProduit(id_produit=produit.id_produit,
+                    id_etagere=id_etagere)
+
+                association.save()
+
+
+                print("Enregistrement du produit en base de données réussi.")
+
+                form = Produitform()  # Réinitialisation du formulaire après enregistrement
+
+            except :
+                save_error = True
+                print(f"Erreur lors de l'enregistrement du produit ")
+
+    else:
+        print("Requête GET reçue, initialisation du formulaire.")
+        form = Produitform()  # Pour les requêtes GET, simplement initialiser le formulaire
+
+    return render(request, 'magasin/add_produit.html', {
+        'form': form,
+        'save_error': save_error,
+        'is_create': is_create,
+    })
+#----------------------------------------------------
+
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Produit, AssociationEtagereProduit
+from .forms import Produitform
+import logging
+
+# Instance de logger
+logger = logging.getLogger("gestionCourses")
+
+def modifier_produit_magasin(request, id_produit):
+    produit = get_object_or_404(Produit, pk=id_produit)
+
+    try:
+        # Chercher l'association entre le produit et l'étagère
+        association = AssociationEtagereProduit.objects.get(id_produit=produit.id_produit)
+        initial_etagere = association.id_etagere
+    except AssociationEtagereProduit.DoesNotExist:
+        initial_etagere = None
+        logger.warning(f"Aucune association trouvée pour le produit ID {produit.id_produit}.")
+
+    if request.method == 'POST':
+        form = Produitform(request.POST)
+
+        if form.is_valid():
+            nom = form.cleaned_data["nom"]
+            categorie_produit = form.cleaned_data["categorie_produit"]
+            etagere = form.cleaned_data["etagere"]
+
+            produit.nom_produit = nom
+            produit.id_categorie_produit = categorie_produit.id_categorie_produit
+            produit.save()
+
+            # Met à jour ou crée l'association avec l'étagère
+            if association:
+                association.id_etagere = etagere.id_etagere
+                association.save()
+                logger.info(f"Association mise à jour pour le produit ID {produit.id_produit} avec l'étagère ID {etagere.id_etagere}.")
+            else:
+                AssociationEtagereProduit.objects.create(
+                    id_produit=produit.id_produit,
+                    id_etagere=etagere.id_etagere
+                )
+                logger.info(f"Association créée entre le produit ID {produit.id_produit} et l'étagère ID {etagere.id_etagere}.")
+
+            return redirect("magasin:voir_produits_magasin")
+    else:
+        # Pour les requêtes GET, pré-remplir le formulaire avec les données existantes
+        form = Produitform(initial={
+            'nom': produit.nom_produit,
+            'categorie_produit': produit.id_categorie_produit,
+            'etagere': initial_etagere
+        })
+
+    return render(request, "magasin/modifier_produit_magasin.html", {
+        "form": form,
+        "produit": produit
+    })

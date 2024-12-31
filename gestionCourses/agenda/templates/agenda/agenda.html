@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Calendrier FullCalendar avec Bulma</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <!-- La librairie FullCalendar -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+  <!-- Lien vers le fichier CSS -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'agenda/css/agenda/styles.css' %}">
+</head>
+<body>
+  <!-- Élément pour afficher le calendrier -->
+  <div id='calendar-container'>
+    <div id='calendar'></div>
+  </div>
+
+  <!-- Modal pour ajouter un événement -->
+  <div id="myModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Détails de l'événement</p>
+        <button id="modal-close" class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <form id="modal-event-form">
+          <div class="field">
+            <label class="label">Titre</label>
+            <div class="control">
+              <input id="modal-title" class="input" type="text" placeholder="Titre de l'événement" required>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Date de début</label>
+            <div class="control">
+              <input id="modal-start_date" class="input" type="datetime-local" required>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Date de fin</label>
+            <div class="control">
+              <input id="modal-end_date" class="input" type="datetime-local">
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input id="modal-all-day" type="checkbox">
+                Toute la journée
+              </label>
+            </div>
+          </div>
+          <input type="hidden" id="modal-event-id" value="">
+          <div id="modal-error-message" class="notification is-danger is-hidden"></div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary" type="submit">Enregistrer</button>
+              <button id="modal-delete" class="button is-danger is-hidden">Supprimer</button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <!-- Ajoutez d'autres boutons ou informations si nécessaire -->
+      </footer>
+    </div>
+  </div>
+
+  <!-- Lien vers le fichier JavaScript -->
+<!--  <script src="{% static 'agenda/scripts/agenda/scripts.js' %}"></script>-->
+  <script src="{% static 'agenda/scripts/agenda/events.js' %}"></script>
+  <script src="{% static 'agenda/scripts/agenda/main.js' %}"></script>
+  <script src="{% static 'agenda/scripts/agenda/modal.js' %}"></script>
+  <script src="{% static 'agenda/scripts/agenda/csrf.js' %}"></script>
+
+</body>
+</html>

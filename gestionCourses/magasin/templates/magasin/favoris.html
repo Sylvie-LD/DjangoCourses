@@ -1,0 +1,20 @@
+{% extends 'magasin/base.html' %}
+{% block content %}
+<div class="container">
+    <article class="panel is-warning my-6 mx-6 ">
+        <p class="panel-heading">
+            Favoris
+        </p>
+        {% for produit in favoris %}
+            <a class="panel-block">
+                <span class="panel-icon">
+                    <i class="fa-solid fa-cart-shopping " aria-hidden="true"></i>
+                </span>
+                {{ produit }}
+            </a>
+        {% endfor %}
+    </article>
+</div>
+
+
+{% endblock content %}

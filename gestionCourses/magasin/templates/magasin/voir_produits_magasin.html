@@ -1,0 +1,58 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class="title is-1 has-text-black">Voici les produits existants </h1>
+    <table>
+<tr>
+    <th>ID PRODUIT</th>
+    <th>NOM</th>
+
+    <th>CATEGORIE</th>
+
+    <th>ÉTAGÈRE</th>
+
+    <th>RAYON</th>
+<th colspan="2">ACTIONS</th>
+</tr>
+{% for produit in produits %}
+<tr>
+    <td>{{produit.id_produit}}</td>
+    <td>{{produit.nom_produit}}</td>
+
+    <td>{{produit.categorie}}</td>
+
+    <td>{{produit.etagere}}</td>
+
+    <td>{{produit.rayon}}</td>
+    <td><a href="{% url 'magasin:modifier_produit_magasin' produit.id_produit %}">🖍️</a></td> <!--windows+.-->
+    <td><a href="{% url 'magasin:supprimer_produit_magasin' produit.id_produit %}">❌</a></td>
+</tr>
+{% endfor %}
+    </table>
+
+
+<div class="block">
+        <div class="container">
+            <div class="has-text-right">
+                <a class="button is-danger is-rounded" href="{% url 'magasin:add_produit' %}">
+                    <span class="icon is-small">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                     <span>Ajouter un produit</span>
+                </a>
+            </div>
+        </div>
+</div>
+
+
+
+
+    <p><a href="{% url 'magasin:creer_magasin' %}">Retour à la création du magasin</a></p>
+
+
+
+
+
+
+{% endblock content %}

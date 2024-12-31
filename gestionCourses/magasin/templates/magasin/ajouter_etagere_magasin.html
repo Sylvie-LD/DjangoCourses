@@ -1,0 +1,30 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class="title is-1 has-text-black"> Ajouter des étagères : </h1>
+
+<form action = "{% url 'magasin:ajouter_etagere_magasin' %}" method="post">
+    {% csrf_token %}
+   <div class="container">
+        <div class="mt-6 mx-6">
+        {% crispy form %}
+            <button class="button is-primary" type ="submit" value = "Ajouter">Ajouter</button>
+        </div>
+   </div>
+</form>
+
+{% if save_error %}
+    <p>Une erreur s'est produite lors de l'enregistrement</p>
+{% else %}
+    {% if is_create == False %}
+    <p>Enregistrement ok en base de données</p>
+
+    {% endif %}
+
+<p><a href="{% url 'magasin:voir_etageres_magasin' %}">Retour à la liste des étagères</a></p>
+<p><a href="{% url 'magasin:add_produit' %}">Retour vers l'ajout de produits</a></p>
+
+{% endif %}
+
+{% endblock content %}

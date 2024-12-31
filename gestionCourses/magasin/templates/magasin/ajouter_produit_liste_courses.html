@@ -1,0 +1,29 @@
+{% extends 'magasin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1 class='title has-text-centered'> Selectionnez un produit du magasin pour la {{ liste_courses.nom_liste }} :</h1>
+       <form method = "post" action = "{% url 'magasin:ajouter_produit_liste_courses' liste_courses.id_liste_courses %}" >
+
+        {% csrf_token %}
+
+   <div class="container">
+        <div class="mt-6 mx-6">
+        {% crispy form %}
+            <button class="button is-primary" type ="submit" value = "Ajouter">Ajouter</button>
+        </div>
+   </div>
+</form>
+
+{% if save_error %}
+    <p>Une erreur s'est produite lors de l'enregistrement du produit en base de données</p>
+{% else %}
+    {% if is_create == False %}
+    <p>Le produit a bien été enregistré dans la {{ liste_courses.nom_liste }} </p>
+  <p><a href="{% url 'magasin:voir_produits_liste_courses' liste_courses.id_liste_courses %}">Retour à la liste de courses</a></p>
+    {% endif %}
+{% endif %}
+
+
+
+{% endblock content %}

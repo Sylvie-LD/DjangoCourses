@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  
+
+
+
+</head>
+
+<body>
+    <canvas id="c" width="800" height="600"></canvas>
+    <input id="b"type="button" value="sauvegarder l'image">
+
+    <script>
+        
+// Créer le canevas 
+var canvas = new fabric.Canvas('c');
+
+fabric.Image.fromURL('rayon.png',function(img) {
+   
+    // Redimensionner l'image proportionnellement pour qu'elle ait une largeur de 200px
+    img.scaleToWidth(200);
+    img.scaleToHeight(200);  
+
+    // Positionner l'image initialement
+   
+    canvas.add(img);
+    
+});
+  // Ajouter un gestionnaire d'événement pour le bouton
+document.getElementById('b').addEventListener('click', function() {
+    // Convertir le canevas en une URL de données
+    var dataURL = canvas.toDataURL('image/png');
+    // Convertir l'URL de données en Blob
+    fetch(dataURL)
+        .then(res => res.blob())
+        .then(blob => {
+            saveAs(blob, "rayon2.png");
+        });
+});  
+    </script>
+</body>
+</html>

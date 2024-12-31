@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+</head>
+<body>
+    <canvas id="c" width="800" height="600"></canvas>
+    <input id="b" type="button" value="Modifier le texte">
+
+    <script>
+        // Créer le canevas 
+        var canvas = new fabric.Canvas('c');
+
+        fabric.Image.fromURL('rayon.png', function(img) {
+            // Redimensionner l'image proportionnellement
+            img.scaleToWidth(200);
+            img.scaleToHeight(200);
+
+            // Positionner l'image initialement
+            img.set({ left: 100, top: 100 });
+            canvas.add(img);
+
+            // Ajouter du texte
+            var text = new fabric.Text('Cliquez pour modifier le texte', {
+                left: 100,
+                top: 350,
+                fontSize: 24,
+                fill: '#000000',
+                fontFamily: 'Arial'
+            });
+
+            // Ajouter le texte au canevas
+            canvas.add(text);
+
+            // Activer l'édition du texte lorsqu'il est sélectionné
+            canvas.on('object:selected', function(e) {
+                if (e.target && e.target.type === 'text') {
+                    var activeObject = e.target;
+                    activeObject.enterEditing();  // Passer en mode édition
+                    activeObject.hiddenTextarea.focus();  // Focaliser le champ de texte caché
+                }
+            });
+
+            // Lorsque l'objet est modifié, affiche le texte modifié dans la console
+            canvas.on('object:modified', function() {
+                console.log('Texte modifié:', text.text);
+            });
+
+            // Rendre le texte modifiable directement
+            text.setControlsVisibility({
+                mt: false,  // Contrôle pour le haut du texte
+                mb: false,  // Contrôle pour le bas du texte
+                ml: false,  // Contrôle pour la gauche du texte
+                mr: false,  // Contrôle pour la droite du texte
+                mtr: true   // Contrôle pour la rotation du texte
+            });
+
+            canvas.renderAll();
+        });
+
+        // Optionnel : Ajouter un gestionnaire d'événement pour le bouton
+        document.getElementById('b').addEventListener('click', function() {
+            // Code pour modifier le texte ou autre fonctionnalité
+            console.log('Bouton cliqué - Ajoutez ici votre fonctionnalité');
+        });
+    </script>
+</body>
+</html>
