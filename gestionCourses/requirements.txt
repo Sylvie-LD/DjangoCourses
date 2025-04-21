@@ -1,0 +1,8 @@
+django==5.0.6
+djangorestframework
+django-crispy-forms
+crispy-bulma
+psycopg2-binary
+python-decouple
+
+

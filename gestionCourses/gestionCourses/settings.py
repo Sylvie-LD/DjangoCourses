@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+from decouple import config
 
 
 
@@ -17,7 +18,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8zj&2)c@2l5kspfpb=tf$o38kllgpa!#6ui5a#2e4q12x-tx*q'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,36 +82,35 @@ WSGI_APPLICATION = 'gestionCourses.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_gestion_courses_db',
-        'USER' : 'dev',
-        'PASSWORD' : 'dvppp',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     },
     'gestion_courses_db': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gestion_courses_db',
-        'USER': 'dev',
-        'PASSWORD': 'dvppp',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     },
 'agenda': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangoAgendas_db',
-        'USER': 'dev',
-        'PASSWORD': 'dvppp',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     },
 
 'shop': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'djangoShop_db',
-    'USER': 'dev',
-    'PASSWORD': 'dvppp',
-    'HOST': '127.0.0.1',
-    'PORT': '5432',
+    'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
 },
 }
 
